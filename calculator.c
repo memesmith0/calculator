@@ -684,8 +684,8 @@ int main(){while(1){
     case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;
     case 'f':free(r[n()].p); break;
     case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;
-    case 'w':a=n();b=n();r[a].p=>i=[b].i;r[a].p->p=[b].p;break;
-    case 'i':r[n()].i=getchar();
-    case 'o':putchar(r[n()].i);
+    case 'w':a=n();b=n();r[a].p->i=r[b].i;r[a].p->p=r[b].p;break;
+    case 'i':r[n()].i=getchar();break;
+    case 'o':putchar(r[n()].i);break;
     case 'q':return 0;break;
     default :return 0;break;}}}
