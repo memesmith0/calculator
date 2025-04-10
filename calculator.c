@@ -676,19 +676,16 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-#define k(c,d) case c:d;break;
-typedef struct M{int i;struct M* p;}m;m g,s[64],c[64];int ch=1,sh=0;
-void b(m *x, m y){x->i=y.i;x->p=y.p;}
-void ps(m d){b(&s[sh++],d);}
-int t(){switch(ch){k(1,return getchar());default:return (c[ch].s++).i;}}
-m pp(){return s[sh--];}
-void m(int c){switch(c){
-    k('x',int d;m c[ch++]=pp()->p;while(d=((c[ch]->p)++)->i)m(d));
-    k('m',m n; n.p=malloc(sizeof(m)*(pp().i));ps(n));
-    k('f',free(s[sh].p));
-    k('r',ps(*(pp().p)));
-    k('w',m x=pp();m y=pp();b(&x,y));
-    k('g',ps(g));
-    k('i',s[sh++].i=getchar());
-    k('o',putchar(s[sh--].i));
-    k('q',ch=0;);default:break;};void main(){while(ch){m(t())}};
+typedef struct M{int i;struct M* p;}m;m r[256],*t; int a; int b;
+int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}
+int main(){while(1){
+    switch(n()){
+    case 'x':t=r[n()].p;break;
+    case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;
+    case 'f':free(r[n()].p); break;
+    case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;
+    case 'w':a=n();b=n();r[a].p=>i=[b].i;r[a].p->p=[b].p;break;
+    case 'i':r[n()].i=getchar();
+    case 'o':putchar(r[n()].i);
+    case 'q':return 0;break;
+    default :return 0;break;}}}
