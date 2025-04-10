@@ -677,18 +677,18 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #define k(c,d) case c:d;break;
-typedef struct M{int i;struct M* p;}m;m g,s[64],c[64];int ch=1;int sh=1;
+typedef struct M{int i;struct M* p;}m;m g,s[64],c[64];int ch=1,sh=0;
 void b(m *x, m y){x->i=y.i;x->p=y.p;}
 void ps(m d){b(&s[sh++],d);}
-int t(){switch(sh){case 1: return getchar(); default: return c[ch] }}
+int t(){switch(ch){k(1,return getchar());default:return (c[ch].s++).i;}}
 m pp(){return s[sh--];}
 void m(int c){switch(c){
-  k('x',m *f=pp()->p;while(f->i)m((f++)->i))
-  k('m',m n; n.p=malloc(sizeof(m)*(pp().i));ps(n))
-  k('f',free(s[sh].p))
-  k('r',ps(*(pp().p)))
-  k('w',m x=pp();m y=pp();b(&x,y))
-  k('g',ps(g))
-  k('i',s[sh++].i=getchar())
-  k('o',putchar(s[sh--].i))
-  k('q',sh=0;}};void main(){while(sh){m(getchar())}}
+    k('x',int d;m c[ch++]=pp()->p;while(d=((c[ch]->p)++)->i)m(d));
+    k('m',m n; n.p=malloc(sizeof(m)*(pp().i));ps(n));
+    k('f',free(s[sh].p));
+    k('r',ps(*(pp().p)));
+    k('w',m x=pp();m y=pp();b(&x,y));
+    k('g',ps(g));
+    k('i',s[sh++].i=getchar());
+    k('o',putchar(s[sh--].i));
+    k('q',ch=0;);default:break;};void main(){while(ch){m(t())}};
