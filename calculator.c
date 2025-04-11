@@ -701,7 +701,8 @@ int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;defaul
     case 'r':r[(t+1)->i].i=(*(r[(t+2)->i].p)).i;break;//read
     case 'w':r[(t+1)->i].p->i=r[(t+2)->i].i;//write
     case 'R':r[(t+1)->i].p=(*(r[(t+2)->i].p)).p;break;//read
-    case 'W':r[(t+1)->i].p->p=r[(t+2)->i].p;break
+    case 'W':r[(t+1)->i].p->p=r[(t+2)->i].p;break;
     case 'i':r[(t+1)->i].i=getchar();break;//input
     case 'o':putchar(r[(t+1)->i].i);break;//output
     default:return 0;}t+=3;}}//error
+
