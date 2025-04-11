@@ -678,7 +678,7 @@ Public License instead of this License.  But first, please read
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct M{int i;struct M* p;}m;//dyamic datastructure
-m r[256],*t,c[256],p[16384];int a=1,b,d=0,h;//global memory
+m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;//global memory
 int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;default:p[d++].i=b;break;}}while(1){switch(t->i){
     case 0: t=c[--h].p;break;
     case '0':r[(t+1)->i].i=0;break;//zero
