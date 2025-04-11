@@ -687,7 +687,7 @@ int main(){while(1){switch(n()){
     case '&':a=n();b=n();c=n();r[a].i=r[b].i&&r[c].i;break;//multiply
     case '|':a=n();b=n();c=n();r[a].i=r[b].i||r[c].i;break;//multiply
     case '/':a=n();b=n();c=n();r[a].i=r[b].i/r[c].i;break;//divide
-    case '!':r[n()].i=!r[n()].i
+    case '!':r[n()].i=!r[n()].i;break;//not
     case '%':a=n();b=n();c=n();r[a].i=r[b].i%r[c].i;break;//mod
     case '=':a=n();b=n();c=n();r[a].i=r[b].i==r[c].i;break;//mod
     case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;//execute
