@@ -676,27 +676,28 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];m[//dyamic datastructure
-int a=1,b,c=0,h;//temps
-int n(){return (t++).i;}
-int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;default:p[c++].i=b;break;}}while(1){switch(n()){
+typedef struct M{int i;struct M* p;}m;//dyamic datastructure
+m r[256],*t,c[256],p[16384];int a=1,b,c=0,h;//global memory
+int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;default:p[c++].i=b;break;}}while(1){switch(t->i){
     case 0: t=c[--h].p;break;
-    case 'x':a=n();c[h++].p=t;t=r[a].p;break;//execute
-    case '#':b=0;a=n();while(a!='#'){b*=10;b+=(a-48);a=n();}r[n()].i=b;break;//number
-    case '+':a=n();b=n();c=n();r[a].i=r[b].i+r[c].i;r[a].p=r[b].p+r[c].i;break;//add
-    case '-':a=n();b=n();c=n();r[a].i=r[b].i-r[c].i;r[a].p=r[b].p-r[c].i;break;//subtract
-    case '*':a=n();b=n();c=n();r[a].i=r[b].i*r[c].i;break;//multiply
-    case '&':a=n();b=n();c=n();r[a].i=r[b].i&&r[c].i;break;//multiply
-    case '|':a=n();b=n();c=n();r[a].i=r[b].i||r[c].i;break;//multiply
-    case '/':a=n();b=n();c=n();r[a].i=r[b].i/r[c].i;break;//divide
-    case '!':r[n()].i=!r[n()].i;break;//not
-    case '%':a=n();b=n();c=n();r[a].i=r[b].i%r[c].i;break;//mod
-    case '=':a=n();b=n();c=n();r[a].i=r[b].i==r[c].i;break;//equal?
-    case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;//malloc
-    case 'f':free(r[n()].p);break;//free
-    case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;//read
-    case 'w':a=n();b=n();r[a].p->i=r[b].i;r[a].p->p=r[b].p;break;//write
-    case 'i':r[n()].i=getchar();break;//input
-    case 'o':putchar(r[n()].i);break;//output
+    case '0':r[(t+1)->i].i=0;break;//zero
+    case 'x':c[h++].p=t;t=r[(t+1)->i].p;break;//execute
+    case '#':r[(t+1)->i].i=((r[(t+1)->i].i)*10)+(((t+2)->i)-48);break;//digit
+    case '+':r[(t+1)->i].i=r[(t+2)->i].i+r[(t+3)->i].i;r[(t+1)->i].p=r[(t+2)->i].p+r[(t+3)->i].i;break;//add
+    case '-':r[(t+1)->i].i=r[(t+2)->i].i-r[(t+3)->i].i;r[(t+1)->i].p=r[(t+2)->i].p-r[(t+3)->i].i;break;//subtract
+    case '*':r[(t+1)->i].i=r[(t+2)->i].i*r[(t+3)->i].i;break;//multiply
+    case '&':r[(t+1)->i].i=r[(t+2)->i].i&&r[(t+3)->i].i;break;//multiply
+    case '|':r[(t+1)->i].i=r[(t+2)->i].i||r[(t+3)->i].i;break;//multiply
+    case '/':r[(t+1)->i].i=r[(t+2)->i].i/r[(t+3)->i].i;break;//divide
+    case '!':r[(t+1)->i].i=!r[(t+2)->i].i;break;//not
+    case '%':r[(t+1)->i].i=r[(t+2)->i].i%r[(t+3)->i].i;break;//mod
+    case '=':r[(t+1)->i].i=r[(t+2)->i].i==r[(t+3)->i].i;break;//equal?
+    case 'm':r[(t+1)->i].p=malloc(sizeof(m)*r[(t+2)->i].i);break;//malloc
+    case 'f':free(r[(t+1)->i].p);break;//free
+    case 'r':r[(t+1)->i].i=(*(r[(t+2)->i].p)).i;r[(t+1)->i].p=(*(r[(t+2)->i].p)).p;break;//read
+    case 'w':r[(t+1)->i].p->i=r[(t+2)->i].i;r[(t+1)->i].p->p=r[(t+2)->i].p;break;//write
+    case 'i':r[(t+1)->i].i=getchar();break;//input
+    case 'o':putchar(r[(t+1)->i].i)break;//output
     case 'q':return 0;break;//quit
-    default :return 0;break;}}}//error
+    default :return 0;break;}t+=4}}//error
+
