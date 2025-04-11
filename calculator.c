@@ -699,4 +699,4 @@ int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;defaul
     case 'w':r[(t+1)->i].p->i=r[(t+2)->i].i;r[(t+1)->i].p->p=r[(t+2)->i].p;break;//write
     case 'i':r[(t+1)->i].i=getchar();break;//input
     case 'o':putchar(r[(t+1)->i].i);break;//output
-    default :return 0;break;}t+=3;}}//error
+    default :return 0;}t+=3;}}//error
