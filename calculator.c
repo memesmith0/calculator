@@ -680,7 +680,7 @@ typedef struct M{int i;struct M* p;}m;m r[256],*t; int a,b;
 int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}
 int main(){while(1){
     switch(n()){
-    case 'x':t=r[n()].p;break;
+    case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;
     case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;
     case 'f':free(r[n()].p); break;
     case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;
@@ -689,4 +689,5 @@ int main(){while(1){
     case 'o':putchar(r[n()].i);break;
     case 'q':return 0;break;
     default :return 0;break;}}}
+
 
