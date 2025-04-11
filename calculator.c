@@ -681,7 +681,7 @@ int a=1,b,c=0,h;//temps
 int n(){return (t++).i;}
 int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;default:p[c++].i=b;break;}}while(1){switch(n()){
     case 0: t=c[--h].p;
-    case 'x':a=n();c[h++].p=t;r[a]=t;break;
+    case 'x':a=n();c[h++].p=t;t=r[a].p;break;//execute
     case '#':b=0;a=n();while(a!='#'){b*=10;b+=(a-48);a=n();}r[n()].i=b;break;//number
     case '+':a=n();b=n();c=n();r[a].i=r[b].i+r[c].i;r[a].p=r[b].p+r[c].i;break;//add
     case '-':a=n();b=n();c=n();r[a].i=r[b].i-r[c].i;r[a].p=r[b].p-r[c].i;break;//subtract
@@ -700,7 +700,3 @@ int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;defaul
     case 'o':putchar(r[n()].i);break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}}}//error
-
-
-
-
