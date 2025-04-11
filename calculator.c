@@ -676,9 +676,10 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
+#include <stdlib.h>
 typedef struct M{int i;struct M* p;}m;//dyamic datastructure
-m r[256],*t,c[256],p[16384];int a=1,b,c=0,h;//global memory
-int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;default:p[c++].i=b;break;}}while(1){switch(t->i){
+m r[256],*t,c[256],p[16384];int a=1,b,d=0,h;//global memory
+int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;default:p[d++].i=b;break;}}while(1){switch(t->i){
     case 0: t=c[--h].p;break;
     case '0':r[(t+1)->i].i=0;break;//zero
     case 'x':c[h++].p=t;t=r[(t+1)->i].p;break;//execute
@@ -686,8 +687,8 @@ int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;defaul
     case '+':r[(t+1)->i].i=r[(t+2)->i].i+r[(t+3)->i].i;r[(t+1)->i].p=r[(t+2)->i].p+r[(t+3)->i].i;break;//add
     case '-':r[(t+1)->i].i=r[(t+2)->i].i-r[(t+3)->i].i;r[(t+1)->i].p=r[(t+2)->i].p-r[(t+3)->i].i;break;//subtract
     case '*':r[(t+1)->i].i=r[(t+2)->i].i*r[(t+3)->i].i;break;//multiply
-    case '&':r[(t+1)->i].i=r[(t+2)->i].i&&r[(t+3)->i].i;break;//multiply
-    case '|':r[(t+1)->i].i=r[(t+2)->i].i||r[(t+3)->i].i;break;//multiply
+    case '&':r[(t+1)->i].i=r[(t+2)->i].i&&r[(t+3)->i].i;break;//and
+    case '|':r[(t+1)->i].i=r[(t+2)->i].i||r[(t+3)->i].i;break;//or
     case '/':r[(t+1)->i].i=r[(t+2)->i].i/r[(t+3)->i].i;break;//divide
     case '!':r[(t+1)->i].i=!r[(t+2)->i].i;break;//not
     case '%':r[(t+1)->i].i=r[(t+2)->i].i%r[(t+3)->i].i;break;//mod
@@ -697,6 +698,6 @@ int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;defaul
     case 'r':r[(t+1)->i].i=(*(r[(t+2)->i].p)).i;r[(t+1)->i].p=(*(r[(t+2)->i].p)).p;break;//read
     case 'w':r[(t+1)->i].p->i=r[(t+2)->i].i;r[(t+1)->i].p->p=r[(t+2)->i].p;break;//write
     case 'i':r[(t+1)->i].i=getchar();break;//input
-    case 'o':putchar(r[(t+1)->i].i)break;//output
+    case 'o':putchar(r[(t+1)->i].i);break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}t+=4}}//error
