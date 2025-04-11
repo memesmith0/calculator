@@ -705,6 +705,7 @@ typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,
 	k('r',ri(1)=(*rp(2)).i)
 	k('w',rp(1)->i=i(2))
 	k('R',rp(1)=(*rp(2)).p)
-	k('W',rp(1)->p=rp(2))
+	k('W',rp(1)=rp(2))
 	k('i',ri(1)=getchar())
 	k('o',putchar(ri(1)))default:return 0)t+=3;)}
+
