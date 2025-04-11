@@ -700,4 +700,3 @@ int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;defaul
     case 'o':putchar(r[(t+1)->i].i)break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}t+=4}}//error
-
