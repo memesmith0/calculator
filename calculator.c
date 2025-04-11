@@ -676,7 +676,7 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-typedef struct M{int i;struct M* p;}m;m r[256],*t; int a; int b;
+typedef struct M{int i;struct M* p;}m;m r[256],*t; int a,b;
 int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}
 int main(){while(1){
     switch(n()){
@@ -689,3 +689,4 @@ int main(){while(1){
     case 'o':putchar(r[n()].i);break;
     case 'q':return 0;break;
     default :return 0;break;}}}
+
