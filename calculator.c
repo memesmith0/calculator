@@ -676,7 +676,7 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-typedef struct M{int i;struct M* p;}m;m r[256],*t,s;//dyamic datastructure
+typedef struct M{int i;struct M* p;}m;m r[256],*t;//dyamic datastructure
 int a,b,c;//temps
 int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}//next instruction
 int main(){while(1){switch(n()){
@@ -689,7 +689,7 @@ int main(){while(1){switch(n()){
     case '/':a=n();b=n();c=n();r[a].i=r[b].i/r[c].i;break;//divide
     case '!':r[n()].i=!r[n()].i;break;//not
     case '%':a=n();b=n();c=n();r[a].i=r[b].i%r[c].i;break;//mod
-    case '=':a=n();b=n();c=n();r[a].i=r[b].i==r[c].i;break;//mod
+    case '=':a=n();b=n();c=n();r[a].i=r[b].i==r[c].i;break;//equal?
     case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;//execute
     case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;//malloc
     case 'f':free(r[n()].p);break;//free
@@ -699,6 +699,7 @@ int main(){while(1){switch(n()){
     case 'o':putchar(r[n()].i);break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}}}//error
+
 
 
 
