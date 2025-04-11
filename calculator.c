@@ -685,7 +685,7 @@ int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;defaul
     case 'x':c[h++].p=t;t=r[(t+1)->i].p;break;//execute
     case '#':r[(t+1)->i].i=((r[(t+1)->i].i)*10)+(((t+2)->i)-48);break;//digit
     case '+':r[(t+1)->i].i+=r[(t+2)->i].i;break;//add
-    case 'j':r[(t+1)->i].p+=r[(t+2)->i].p;break;//jump
+    case 'j':r[(t+1)->i].p+=r[(t+2)->i].i;break;//jump
     case '-':r[(t+1)->i].i*=-1;break;//negate
     case '*':r[(t+1)->i].i*=r[(t+2)->i].i;break;//multiply
     case '|':r[(t+1)->i].i=r[(t+1)->i].i||r[(t+2)->i].i;break;//or
@@ -701,4 +701,5 @@ int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;defaul
     case 'o':putchar(r[(t+1)->i].i);break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}t+=3}}//error
+
 
