@@ -676,10 +676,12 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-typedef struct M{int i;struct M* p;}m;m r[256],*t;//dyamic datastructure
-int a,b,c;//temps
-int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}//next instruction
-int main(){while(1){switch(n()){
+typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];m[//dyamic datastructure
+int a=1,b,c=0,h;//temps
+int n(){return (t++).i;}
+int main(){while(a){b=getchar();switch(a){case 'g':p[c].i=0;t=p;a=0;break;default:p[c++].i=b;break;}}while(1){switch(n()){
+    case 0: t=c[--h].p;
+    case 'x':a=n();c[h++].p=t;r[a]=t;break;
     case '#':b=0;a=n();while(a!='#'){b*=10;b+=(a-48);a=n();}r[n()].i=b;break;//number
     case '+':a=n();b=n();c=n();r[a].i=r[b].i+r[c].i;r[a].p=r[b].p+r[c].i;break;//add
     case '-':a=n();b=n();c=n();r[a].i=r[b].i-r[c].i;r[a].p=r[b].p-r[c].i;break;//subtract
@@ -690,7 +692,6 @@ int main(){while(1){switch(n()){
     case '!':r[n()].i=!r[n()].i;break;//not
     case '%':a=n();b=n();c=n();r[a].i=r[b].i%r[c].i;break;//mod
     case '=':a=n();b=n();c=n();r[a].i=r[b].i==r[c].i;break;//equal?
-    case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;//execute
     case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;//malloc
     case 'f':free(r[n()].p);break;//free
     case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;//read
@@ -699,8 +700,6 @@ int main(){while(1){switch(n()){
     case 'o':putchar(r[n()].i);break;//output
     case 'q':return 0;break;//quit
     default :return 0;break;}}}//error
-
-
 
 
 
