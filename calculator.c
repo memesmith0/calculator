@@ -676,18 +676,19 @@ Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
 #include <stdio.h>
-typedef struct M{int i;struct M* p;}m;m r[256],*t; int a,b;
-int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}
-int main(){while(1){
-    switch(n()){
-    case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;
-    case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;
-    case 'f':free(r[n()].p); break;
-    case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;
-    case 'w':a=n();b=n();r[a].p->i=r[b].i;r[a].p->p=r[b].p;break;
-    case 'i':r[n()].i=getchar();break;
-    case 'o':putchar(r[n()].i);break;
-    case 'q':return 0;break;
-    default :return 0;break;}}}
+typedef struct M{int i;struct M* p;}m;m r[256],*t;int a,b;//dyamic datastructure
+int n(){while(1){switch(t->i){case 0:switch(t->p){case 0:return getchar();break;default:t=t->p;break;}default:return t->i;break;}}}//next instruction
+int main(){while(1){switch(n()){
+    case '#':b=0;while(a!='#'){b*=10;b+=(a-48);a=n();}r[n()].i=b;//number
+    case 'x':a=n();r[a].p->p=t;t=r[a].p;n();break;//execute
+    case 'm':r[n()].p=malloc(sizeof(m)*r[n()].i);break;//malloc
+    case 'f':free(r[n()].p); break;//free
+    case 'r':a=n();b=n();r[a].i=(*(r[b].p)).i;r[a].p=(*(r[b].p)).p;break;//read
+    case 'w':a=n();b=n();r[a].p->i=r[b].i;r[a].p->p=r[b].p;break;//write
+    case 'i':r[n()].i=getchar();break;//input
+    case 'o':putchar(r[n()].i);break;//output
+    case 'q':return 0;break;//quit
+    default :return 0;break;}}}//error
+
 
 
