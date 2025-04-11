@@ -677,32 +677,35 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct M{int i;struct M* p;}m;//dyamic datastructure
-m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;//global memory
-int main(){while(a){b=getchar();switch(b){case 'g':p[d].i=0;t=p;a=0;break;default:p[d++].i=b;break;}}while(1){switch(t->i){
-    case 0: t=c[--h].p;break;
-    case '0':r[(t+1)->i].i=0;break;//zero
-    case 'x':c[h++].p=t;t=r[(t+1)->i].p;break;//execute
-    case '#':r[(t+1)->i].i=((r[(t+1)->i].i)*10)+(((t+2)->i)-48);break;//digit
-    case '+':r[(t+1)->i].i+=r[(t+2)->i].i;break;//add
-    case 'j':r[(t+1)->i].p+=r[(t+2)->i].i*sizeof(m);break;//jump
-    case '-':r[(t+1)->i].i*=-1;break;//negate
-    case '*':r[(t+1)->i].i*=r[(t+2)->i].i;break;//multiply
-    case '|':r[(t+1)->i].i=r[(t+1)->i].i||r[(t+2)->i].i;break;//or
-    case '/':r[(t+1)->i].i/=r[(t+2)->i].i;break;//divide
-    case '!':r[(t+1)->i].i=!r[(t+1)->i].i;break;//not
-    case '%':r[(t+1)->i].i=r[(t+1)->i].i%r[(t+2)->i].i;break;//mod
-    case 'e':r[(t+1)->i].i=r[(t+1)->i].i==r[(t+2)->i].i;break;//equal?
-    case 'E':r[(t+1)->i].i=r[(t+1)->i].p==r[(t+2)->i].p;break;//equal?
-    case 'a':r[(t+1)->i].p=malloc(sizeof(m)*r[(t+1)->i].i);break;//malloc
-    case 'm':r[(t+1)->i].i=r[(t+2)->i].i;break;
-    case 'M':r[(t+1)->i].p=r[(t+2)->i].p;break;
-    case 'f':free(r[(t+1)->i].p);break;//free
-    case 'r':r[(t+1)->i].i=(*(r[(t+2)->i].p)).i;break;//read
-    case 'w':r[(t+1)->i].p->i=r[(t+2)->i].i;//write
-    case 'R':r[(t+1)->i].p=(*(r[(t+2)->i].p)).p;break;//read
-    case 'W':r[(t+1)->i].p->p=r[(t+2)->i].p;break;
-    case 'i':r[(t+1)->i].i=getchar();break;//input
-    case 'o':putchar(r[(t+1)->i].i);break;//output
-    default:return 0;}t+=3;}}//error
+#define i(x) ((t+x)->i)
+#define p(x) ((t+x)->p)
+#define rp(x) (r[i(x)].p)
+#define ri(x) (r[i(x)].i)
+#define k(x,y) case x:y;break;
+#define w(x,y) switch(x){y;}
+#define l(x,y) while(x){y;}
+typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){l(a,b=getchar();w(b,k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;break;))l(1,w((t->i),
+	k(0, t=c[--h].p)
+	k('0',ri(1)=0)
+	k('x',c[h++].p=t;t=rp(1))
+	k('#',ri(1)=(ri(1)*10)+(i(2)-48))
+	k('+',ri(1)+=i(2))
+	k('j',rp(1)+=i(2)*sizeof(m))
+	k('-',ri(1)*=-1)
+	k('*',ri(1)*=i(2))
+	k('|',ri(1)=ri(1)||i(2))
+	k('/',ri(1)/=i(2))
+	k('!',ri(1)=!ri(1))
+	k('%',ri(1)=ri(1)%i(2))
+	k('=',ri(1)=ri(1)==i(2))
+	k('a',rp(1)=malloc(sizeof(m)*ri(1)))
+	k('m',ri(1)=i(2))
+	k('M',rp(1)=rp(2))
+	k('f',free(rp(1)))
+	k('r',ri(1)=(*rp(2)).i)
+	k('w',rp(1)->i=i(2))
+	k('R',rp(1)=(*rp(2)).p)
+	k('W',rp(1)->p=rp(2))
+	k('i',ri(1)=getchar())
+	k('o',putchar(ri(1)))default:return 0)t+=3;)}
 
