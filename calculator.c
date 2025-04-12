@@ -704,7 +704,7 @@ typedef struct M{int i;struct M* p;}m;m r[sizeof(char)],*t,c[256],p[16384];int a
 	k('f',free(v(1)))
 	k('r',o(1)=v(2)->i)
 	k('w',v(1)->i=o(2))
-	k('R',v(1)=*v(2)->p)
+	k('R',v(1)=v(2)->p)
 	k('W',v(1)->p=v(2))
 	k('i',o(1)=getchar())
 	k('o',putchar(o(1)))default:return 0)t+=3;)}
