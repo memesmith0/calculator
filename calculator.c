@@ -682,9 +682,11 @@ Public License instead of this License.  But first, please read
 #define j (r[(t+1)->i].p)
 #define n (r[(t+2)->i].p)
 #define k(x,y) case x:y;break;
-#define w(x,y,z) switch(x){y; default: z; break;}
-#define l(x,y) while(x){y;}
-typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){l(a,w((b=getchar()),k('g',p[d].i=0;t=p;a=0),p[d++].i=b))l(1,w((t->i),
+typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;
+int main(){
+while(a){
+switch((b=getchar())){
+k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
 	k(0, t=c[--h].p)
 	k('x',c[h++].p=t;t=j)
 	k('#',e=((t+1)->i)-48)
@@ -700,4 +702,4 @@ typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,
 	k('r',e=j->i;j=j->p)
 	k('w',j->i=q;j->p=n)
 	k('i',e=getchar())
-	k('o',putchar(e)),return 0)t+=3)}
+	k('o',putchar(e)) default: return 0;}t+=3;}}
