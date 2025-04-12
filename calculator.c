@@ -685,7 +685,7 @@ Public License instead of this License.  But first, please read
 typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){while(a){switch((b=getchar())){k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
 	k(0, t=c[--h].p)
 	k('x',c[h++].p=t;t=j)
-	k('#',e=((t+1)->i)-48)
+	k('#',q=((t+1)->i)-48)
 	k('-',e-=q)
 	k('j',j+=q*sizeof(m))
 	k('*',e*=q)
