@@ -684,7 +684,7 @@ Public License instead of this License.  But first, please read
 #define k(x,y) case x:y;break;
 #define w(x,y) switch(x){y;}
 #define l(x,y) while(x){y;}
-typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){l(a,b=getchar();w(b,k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;break;))l(1,w((t->i),
+typedef struct M{int i;struct M* p;}m;m r[sizeof(char)],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){l(a,b=getchar();w(b,k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;break;))l(1,w((t->i),
 	k(0, t=c[--h].p)
 	k('0',o(1)=0)
 	k('x',c[h++].p=t;t=v(1))
@@ -705,6 +705,6 @@ typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,
 	k('r',o(1)=v(2)->i)
 	k('w',v(1)->i=o(2))
 	k('R',v(1)=*v(2)->p)
-	k('W',v(1)=v(2))
+	k('W',v(1)->p=v(2))
 	k('i',o(1)=getchar())
 	k('o',putchar(o(1)))default:return 0)t+=3;)}
