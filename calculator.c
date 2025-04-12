@@ -679,17 +679,33 @@ Public License instead of this License.  But first, please read
 #include <stdlib.h>
 #define i(x) (r[(t+x)->i].i)
 #define p(x) (r[(t+x)->i].p)
-#define k(x,y) case x:y;break;
-typedef struct M{int i;struct M* p;}m;m r[256],c[64],*t,p[8192];int d=0,h=0;int main(){while(1){if((p[d++].i=getchar())=='g'){t=p;break;}}while(1){switch(t->i){
-	k(0,t=c[--h].p)
-	k('x',c[h++].p=t;t=p(1))
-	k('#',i(2)=((t+1)->i)-48)
-	k('-',i(1)-=i(2);p(1)-=i(2)*sizeof(m))
-	k('<',i(1)=i(1)<i(2))
-	k('a',p(1)=malloc(sizeof(m)*i(1)))
-	k('f',free(p(1)))
-	k('m',i(1)=i(2);p(1)=p(2))
-	k('r',i(1)=p(1)->i;p(1)=p(1)->p)
-	k('w',p(1)->i=i(2);p(1)->p=p(2))
-	k('i',i(1)=getchar())
-	k('o',putchar(i(1))) default: return 0;}t+=3;}}
+typedef struct M{int i;struct M* p;}m;
+m r[256],*h,c[64],*t,p[8192];
+int main(){
+  h=c;
+  t=p;
+  while(1){
+    if(((t++)->i=getchar())=='g'){
+      t=p;
+      break;
+    }
+  }
+  while(1){
+    switch(t->i){
+    case 0:t=(--h)->p;break;
+    case 'x':(h++)->p=t;t=p(1);break;
+    case '#':i(2)=((t+1)->i)-48;break;
+    case '-':i(1)-=i(2);p(1)-=i(2)*sizeof(m);break;
+    case '<':i(1)=i(1)<i(2);break;
+    case 'a':p(1)=malloc(sizeof(m)*i(1));break;
+    case 'f':free(p(1));break;
+    case 'm':i(1)=i(2);p(1)=p(2);break;
+    case 'r':i(1)=p(1)->i;p(1)=p(1)->p;break;
+    case 'w':p(1)->i=i(2);p(1)->p=p(2);break;
+    case 'i':i(1)=getchar();break;
+    case 'o':putchar(i(1));break;
+    default: return 0;
+    }
+    t+=3;
+  }
+}
