@@ -694,7 +694,6 @@ k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
 	k('j',j+=q*sizeof(m))
 	k('*',e*=q)
 	k('/',e/=q)
-	k('%',e=e%q)
 	k('<',e=e<q)
 	k('a',j=malloc(sizeof(m)*e))
 	k('m',e=q;j=n)
