@@ -677,16 +677,46 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define m struct M
-#define i int
 #define k(x,y) case x: y; break;
-#define s sizeof(m)
-#define l(x,y) while(x){y;}
-#define g getchar()
-#define a (r[(t+1)->n].n)
-#define b (r[(t+2)->n].n)
-#define c (r[(t+1)->n].p)
-#define d (r[(t+2)->n].p)
-#define C 256
-#define w(x,y) switch(x){y;}
-typedef m {i n;m *p;};m r[C],*h,e[C],*t,p[C*C];i main(){t=p;l((((t++)->n=g)!='g'),)t=p;h=e;l(1,w(t->n,k(0,t=(--h)->p)k('x',(h++)->p=t;t=c)k('#',b=((t+1)->n)-48)k('-',a-=b;c-=s*b)k('*',a*=b)k('<',a=a<b)k('a',c=malloc(s*a))k('f',free(c))k('m',a=b;c=d)k('r',a=c->n;c=c->p)k('w',c->n=b;c->p=d)k('i',a=g)k('o',putchar(a))default: return 0)t+=3;)}
+#define a (r[(i+1)->n].n)
+#define b (r[(i+2)->n].n)
+#define c (r[(i+1)->n].p)
+#define d (r[(i+2)->n].p)
+
+typedef struct M{int n;struct M *p;}m;//dynamic datastructure
+
+m r[256], //registers
+  
+  *call,call_stack[256],//clal stack
+  *i,//current instruction
+  
+  p[8192];//initial program
+
+int main(){
+  
+  call=call_stack;//prepare call stack
+    
+  i=p;while(((i++)->n=getchar())!='g'){}i=p;//load initial program
+  
+  while(1){switch(i->n){//infininitely read op codes
+      k(0,i=(--call)->p)//end function
+	k('x',(call++)->p=i;i=c)//execute
+	k('#',b=((i+1)->n)-48)//input digit
+	k('-',a-=b;c-=b)//subtract
+	k('*',a*=b)//multiply
+	k('<',a=a<b)//less than
+	k('a',c=malloc(sizeof(m)*a))//allocate
+	k('f',free(c))//free
+	k('m',a=b;c=d)//move
+	k('r',a=c->n;c=c->p)//read
+	k('w',c->n=b;c->p=d)//write
+	k('i',a=getchar())//input
+	k('o',putchar(a))//output
+    default: return 0;//exit on mismatch
+    }
+    
+    i+=3;//fetch next op code
+    
+  }
+  
+}
