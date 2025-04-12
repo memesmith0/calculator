@@ -686,8 +686,6 @@ typedef struct M{int i;struct M* p;}m;m r[256],c[64],*t,p[8192];int a=1,b,d=0,h=
 	k('#',i(2)=((t+1)->i)-48)
 	k('-',i(1)-=i(2))
 	k('j',p(1)+=i(2)*sizeof(m))
-	k('*',i(1)*=i(2))
-	k('/',i(1)/=i(2))
 	k('<',i(1)=i(1)<i(2))
 	k('a',p(1)=malloc(sizeof(m)*i(1)))
 	k('m',i(1)=i(2);p(1)=p(2))
