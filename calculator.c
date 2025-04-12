@@ -677,24 +677,22 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define e (r[(t+1)->i].i)
-#define q (r[(t+2)->i].i)
-#define j (r[(t+1)->i].p)
-#define n (r[(t+2)->i].p)
+#define i(x) (r[(t+x)->i].i)
+#define p(x) (r[(t+x)->i].p)
 #define k(x,y) case x:y;break;
 typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){while(a){switch((b=getchar())){k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
-	k(0, t=c[--h].p)
-	k('x',c[h++].p=t;t=j)
-	k('#',q=((t+1)->i)-48)
-	k('-',e-=q)
-	k('j',j+=q*sizeof(m))
-	k('*',e*=q)
-	k('/',e/=q)
-	k('<',e=e<q)
-	k('a',j=malloc(sizeof(m)*e))
-	k('m',e=q;j=n)
-	k('f',free(j))
-	k('r',e=j->i;j=j->p)
-	k('w',j->i=q;j->p=n)
-	k('i',e=getchar())
-	k('o',putchar(e)) default: return 0;}t+=3;}}
+	k(0,t=c[--h].p)
+	k('x',c[h++].p=t;t=p)
+	k('#',i(2)=((t+1)->i)-48)
+	k('-',i(1)-=i(2))
+	k('j',p(1)+=i(2)*sizeof(m))
+	k('*',i(1)*=i(2))
+	k('/',i(1)/=i(2))
+	k('<',i(1)=i(1)<i(2))
+	k('a',p(1)=malloc(sizeof(m)*i(1)))
+	k('m',i(1)=i(2);p(1)=p(2))
+	k('f',free(p(1)))
+	k('r',i(1)=p(1)->i;p(1)=p(1)->p)
+	k('w',p(1)->i=i(2);p(1)->p=p(2))
+	k('i',i(1)=getchar())
+	k('o',putchar(i(1))) default: return 0;}t+=3;}}
