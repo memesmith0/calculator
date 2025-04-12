@@ -684,12 +684,8 @@ m r[256],*h,c[64],*t,p[8192];
 int main(){
   h=c;
   t=p;
-  while(1){
-    if(((t++)->i=getchar())=='g'){
-      t=p;
-      break;
-    }
-  }
+  while(((t++)->i=getchar())!='g');
+  t=p;
   while(1){
     switch(t->i){
     case 0:t=(--h)->p;break;
