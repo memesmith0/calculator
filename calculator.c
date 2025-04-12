@@ -682,15 +682,19 @@ Public License instead of this License.  But first, please read
 #define v(x) (r[i(x)].p)
 #define o(x) (r[i(x)].i)
 #define k(x,y) case x:y;break;
-#define w(x,y) switch(x){y;}
+#define w(x,y,z) switch(x){y; default: z; break;}
 #define l(x,y) while(x){y;}
-typedef struct M{int i;struct M* p;}m;m r[sizeof(char)],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){l(a,b=getchar();w(b,k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;break;))l(1,w((t->i),
+#define g() getchar()
+#define u(x) sizeof(x)
+typedef struct M{int i;struct M* p;}m;m r[u(char)],*t,c[u(char)],p[16384];int a=1,b,d=0,h=0;
+int main(){
+l(a,w((b=g()),k('g',p[d].i=0;t=p;a=0),p[d++].i=b))l(1,w((t->i),
 	k(0, t=c[--h].p)
 	k('0',o(1)=0)
 	k('x',c[h++].p=t;t=v(1))
 	k('#',o(2)=(o(2)*10)+(i(1)-48))
 	k('+',o(1)+=o(2))
-	k('j',v(1)+=o(2)*sizeof(m))
+	k('j',v(1)+=o(2)*u(m))
 	k('-',o(1)*=-1)
 	k('*',o(1)*=o(2))
 	k('|',o(1)=o(1)||o(2))
@@ -698,7 +702,7 @@ typedef struct M{int i;struct M* p;}m;m r[sizeof(char)],*t,c[256],p[16384];int a
 	k('!',o(1)=!o(1))
 	k('%',o(1)=o(1)%o(2))
 	k('=',o(1)=o(1)==o(2))
-	k('a',v(1)=malloc(sizeof(m)*o(1)))
+	k('a',v(1)=malloc(u(m)*o(1)))
 	k('m',o(1)=o(2))
 	k('M',v(1)=v(2))
 	k('f',free(v(1)))
@@ -706,5 +710,6 @@ typedef struct M{int i;struct M* p;}m;m r[sizeof(char)],*t,c[256],p[16384];int a
 	k('w',v(1)->i=o(2))
 	k('R',v(1)=v(2)->p)
 	k('W',v(1)->p=v(2))
-	k('i',o(1)=getchar())
-	k('o',putchar(o(1)))default:return 0)t+=3;)}
+	k('i',o(1)=g())
+	k('o',putchar(o(1))),return 0)t+=3)}
+
