@@ -689,4 +689,4 @@ Public License instead of this License.  But first, please read
 #define d (r[(t+2)->n].p)
 #define C 256
 #define w(x,y) switch(x){y;}
-typedef m {i n;m *p;};m r[C],*h,e[C],*t,p[C*C];i main(){t=p;l((((t++)->n=g)!='g'),)t=p;h=c;l(1,w(t->n,k(0,t=(--h)->p)k('x',(h++)->p=t;t=c)k('#',b=((t+1)->n)-48)k('-',a-=b;c-=s*b)k('*',a*=b)k('<',a=a<b)k('a',c=malloc(s*a))k('f',free(c))k('m',a=b;c=d)k('r',a=c->n;c=c->p)k('w',c->n=b;c->p=d)k('i',a=g)k('o',putchar(a))default: return 0)t+=3;)}
+typedef m {i n;m *p;};m r[C],*h,e[C],*t,p[C*C];i main(){t=p;l((((t++)->n=g)!='g'),)t=p;h=e;l(1,w(t->n,k(0,t=(--h)->p)k('x',(h++)->p=t;t=c)k('#',b=((t+1)->n)-48)k('-',a-=b;c-=s*b)k('*',a*=b)k('<',a=a<b)k('a',c=malloc(s*a))k('f',free(c))k('m',a=b;c=d)k('r',a=c->n;c=c->p)k('w',c->n=b;c->p=d)k('i',a=g)k('o',putchar(a))default: return 0)t+=3;)}
