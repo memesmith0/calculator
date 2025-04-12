@@ -680,7 +680,7 @@ Public License instead of this License.  But first, please read
 #define i(x) (r[(t+x)->i].i)
 #define p(x) (r[(t+x)->i].p)
 #define k(x,y) case x:y;break;
-typedef struct M{int i;struct M* p;}m;m r[256],*t,c[256],p[16384];int a=1,b,d=0,h=0;int main(){while(a){switch((b=getchar())){k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
+typedef struct M{int i;struct M* p;}m;m r[256],c[64],*t,p[8192];int a=1,b,d=0,h=0;int main(){while(a){switch((b=getchar())){k('g',p[d].i=0;t=p;a=0)default:p[d++].i=b;}}while(1){switch(t->i){
 	k(0,t=c[--h].p)
 	k('x',c[h++].p=t;t=p)
 	k('#',i(2)=((t+1)->i)-48)
