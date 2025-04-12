@@ -677,31 +677,16 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define i(x) (r[(t+x)->i].i)
-#define p(x) (r[(t+x)->i].p)
-typedef struct M{int i;struct M* p;}m;
-m r[256],*h,c[64],*t,p[8192];
-int main(){
-  h=c;
-  t=p;
-  while(((t++)->i=getchar())!='g');
-  t=p;
-  while(1){
-    switch(t->i){
-    case 0:t=(--h)->p;break;
-    case 'x':(h++)->p=t;t=p(1);break;
-    case '#':i(2)=((t+1)->i)-48;break;
-    case '-':i(1)-=i(2);p(1)-=i(2)*sizeof(m);break;
-    case '<':i(1)=i(1)<i(2);break;
-    case 'a':p(1)=malloc(sizeof(m)*i(1));break;
-    case 'f':free(p(1));break;
-    case 'm':i(1)=i(2);p(1)=p(2);break;
-    case 'r':i(1)=p(1)->i;p(1)=p(1)->p;break;
-    case 'w':p(1)->i=i(2);p(1)->p=p(2);break;
-    case 'i':i(1)=getchar();break;
-    case 'o':putchar(i(1));break;
-    default: return 0;
-    }
-    t+=3;
-  }
-}
+#define m struct M
+#define i int
+#define k(x,y) case x: y; break;
+#define s sizeof(m)
+#define l(x,y) while(x){y;}
+#define g getchar()
+#define a (r[(t+1)->n].n)
+#define b (r[(t+2)->n].n)
+#define c (r[(t+1)->n].p)
+#define d (r[(t+2)->n].p)
+#define C 256
+#define w(x,y) switch(x){y;}
+typedef m {i n;m *p;};m r[C],*h,e[C],*t,p[C*C];i main(){t=p;l((((t++)->n=g)!='g'),)t=p;h=c;l(1,w(t->n,k(0,t=(--h)->p)k('x',(h++)->p=t;t=c)k('#',b=((t+1)->n)-48)k('-',a-=b;c-=s*b)k('*',a*=b)k('<',a=a<b)k('a',c=malloc(s*a))k('f',free(c))k('m',a=b;c=d)k('r',a=c->n;c=c->p)k('w',c->n=b;c->p=d)k('i',a=g)k('o',putchar(a))default: return 0)t+=3;)}
