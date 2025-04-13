@@ -725,6 +725,9 @@ int main(){
 	k('W',c->p=d)//write pointer
 	k('i',a=getchar())//input
 	k('o',putchar(a))//output
+	k(' ',;)//whitespace
+	k('\n',;)//whitespace
+	k('\t',;)//whitespace
     default: return 0;//exit on mismatch
     }
     
