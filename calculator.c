@@ -677,11 +677,11 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define k(x,y) case x: y; break;
-#define a (r[(i+1)->n].n)
-#define b (r[(i+2)->n].n)
-#define c (r[(i+1)->n].p)
-#define d (r[(i+2)->n].p)
+#define k(x,y) case x: y; break; //case statement
+#define a (r[(i+1)->n].n) //the integer at register 1
+#define b (r[(i+2)->n].n) //the integer at register 2
+#define c (r[(i+1)->n].p) //the pointer at register 1
+#define d (r[(i+2)->n].p) //the pointer at register 2
 
 typedef struct M{int n;struct M *p;}m;//dynamic datastructure
 
