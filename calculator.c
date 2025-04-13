@@ -677,15 +677,15 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define k(x,y) case x: y; break; //case statement
-#define a (r[(i+1)->n].n) //the integer at register 1
-#define b (r[(i+2)->n].n) //the integer at register 2
-#define c (r[(i+1)->n].p) //the pointer at register 1
-#define d (r[(i+2)->n].p) //the pointer at register 2
+#define k(x,y) case x: y;break;//case statement
+#define a (r[(i+1)->n].n)//the integer at register 1
+#define b (r[(i+2)->n].n)//the integer at register 2
+#define c (r[(i+1)->n].p)//the pointer at register 1
+#define d (r[(i+2)->n].p)//the pointer at register 2
 
 typedef struct M{int n;struct M *p;}m;//dynamic datastructure
 
-m r[256], //registers
+m r[256],//registers
   
   *call,call_stack[256],//call stack
   
@@ -701,8 +701,9 @@ int main(){
   
   while(1){switch(i->n){//infininitely read op codes
       k(0,i=(--call)->p)//end function
+	k('0',a=0)//zero
 	k('x',(call++)->p=i;i=c)//execute
-	k('#',a*=10;a+=((i+2)->n)-48)//num
+	k('#',b*=10;b+=((i+1)->n)-48)//num
 	k('\"',b=((i+1)->n))//input digit
 	k('+',a+=b)//add
 	k('-',a-=b)//subtract
