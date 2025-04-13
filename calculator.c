@@ -687,7 +687,8 @@ typedef struct M{int n;struct M *p;}m;//dynamic datastructure
 
 m r[256], //registers
   
-  *call,call_stack[256],//clal stack
+  *call,call_stack[256],//call stack
+  
   *i,//current instruction
   
   p[8192];//initial program
@@ -701,15 +702,26 @@ int main(){
   while(1){switch(i->n){//infininitely read op codes
       k(0,i=(--call)->p)//end function
 	k('x',(call++)->p=i;i=c)//execute
-	k('#',b=((i+1)->n)-48)//input digit
-	k('-',a-=b;c-=b)//subtract
+	k('#',a*=10;a+=((i+2)->n)-48)//num
+	k('\"',b=((i+1)->n))//input digit
+	k('+',a+=b)//add
+	k('-',a-=b)//subtract
+	k('_',a*=-1)//negate
 	k('*',a*=b)//multiply
+	k('/',a/=b)//divide
 	k('<',a=a<b)//less than
+	k('|',a=a||b)//or
+	k('&',a=a&&b)//and
+	k('!',a=!a)//not
+	k('j',c+=b)//jump
 	k('a',c=malloc(sizeof(m)*a))//allocate
 	k('f',free(c))//free
-	k('m',a=b;c=d)//move
-	k('r',a=c->n;c=c->p)//read
-	k('w',c->n=b;c->p=d)//write
+	k('m',a=b)//move
+	k('M',c=d)//move
+	k('r',a=c->n)//read int
+	k('w',c->n=b)//write int
+	k('R',c=c->p)//read pointer
+	k('W',c->p=d)//write pointer
 	k('i',a=getchar())//input
 	k('o',putchar(a))//output
     default: return 0;//exit on mismatch
