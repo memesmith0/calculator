@@ -710,14 +710,15 @@ int main(){
 	k('*',a*=b)//multiply
 	k('/',a/=b)//divide
 	k('<',a=a<b)//less than
+	k('=',a=a==b)//equal
 	k('|',a=a||b)//or
 	k('&',a=a&&b)//and
 	k('!',a=!a)//not
 	k('j',c+=b)//jump
 	k('a',c=malloc(sizeof(m)*a))//allocate
 	k('f',free(c))//free
-	k('m',a=b)//move
-	k('M',c=d)//move
+	k('m',a=b)//move int
+	k('M',c=d)//move pointer
 	k('r',a=c->n)//read int
 	k('w',c->n=b)//write int
 	k('R',c=c->p)//read pointer
