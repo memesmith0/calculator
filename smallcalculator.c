@@ -683,15 +683,17 @@ Public License instead of this License.  But first, please read
 #define c (r[(i+1)->n].p)
 #define d (r[(i+2)->n].p)
 typedef struct M{int n;struct M *p;}m;m r[256],*i,p[8192];int main(){i=p;while(((i++)->n=getchar())!='g');i=p;while(1){switch(i->n){
-    k('x',i=c)
-      k('\"',b=((i+1)->n))
-      k('-',a-=b;c-=b)
-      k('<',a=a<b)
-      k('w',c->n=b;c->p=d)
-      k('o',putchar(a))
-      k('r',a=c->n;c=c->p)
-      k('m',a=b;c=d)
       k('i',a=getchar())
-      k('a',c=malloc(sizeof(m)*a))
-      k('f',free(c))
+	k('m',a=b;c=d)
+	k('w',c->n=b;c->p=d)
+	k('a',c=malloc(sizeof(m)*a))
+	k('r',a=c->n;c=c->p)
+	k('f',free(c))
+	k('o',putchar(a))
+	k('x',i=c)
+	k('\"',b=((i+1)->n))
+	k('-',a-=b;c-=b)
+	k('<',a=a<b)
+	  
+
     default: return 0;}i+=3;}}
