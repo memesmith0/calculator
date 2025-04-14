@@ -687,22 +687,16 @@ typedef struct M{int n;struct M *p;}m;//dynamic datastructure
 
 m r[256],//registers
   
-  *call,call_stack[256],//call stack
-  
   *i,//current instruction
   
   p[8192];//initial program
 
 int main(){
-  
-  call=call_stack;//prepare call stack
     
   i=p;while(((i++)->n=getchar())!='g'){}i=p;//load initial program
   
   while(1){switch(i->n){//infininitely read op codes
-      k(0,i=(--call)->p)//end function
-	k('0',a=0)//zero
-	k('x',(call++)->p=i;i=c)//execute
+      k('x',i=c)//execute
 	k('#',b*=10;b+=((i+1)->n)-48)//num
 	k('\"',b=((i+1)->n))//input digit
 	k('+',a+=b)//add
