@@ -677,9 +677,21 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define k(x,y) case x: y;break;//case statement
+#define k(x,y) case x: y;break;
 #define a (r[(i+1)->n].n)
 #define b (r[(i+2)->n].n)
 #define c (r[(i+1)->n].p)
 #define d (r[(i+2)->n].p)
-typedef struct M{int n;struct M *p;}m;m r[256],*i,p[8192];int main(){i=p;while(((i++)->n=getchar())!='g');i=p;while(1){switch(i->n){k('x',i=c)k('\"',b=((i+1)->n))k('-',a-=b;c-=b)k('<',a=a<b)k('a',c=malloc(sizeof(m)*a))k('f',free(c))k('m',a=b;c=d)k('r',a=c->n;c=c->p)k('w',c->n=b;c->p=d)k('i',a=getchar())k('o',putchar(a))default: return 0;}i+=3;}}
+typedef struct M{int n;struct M *p;}m;m r[256],*i,p[8192];int main(){i=p;while(((i++)->n=getchar())!='g');i=p;while(1){switch(i->n){
+    k('x',i=c)
+      k('\"',b=((i+1)->n))
+      k('-',a-=b;c-=b)
+      k('<',a=a<b)
+      k('w',c->n=b;c->p=d)
+      k('o',putchar(a))
+      k('r',a=c->n;c=c->p)
+      k('m',a=b;c=d)
+      k('i',a=getchar())
+      k('a',c=malloc(sizeof(m)*a))
+      k('f',free(c))
+    default: return 0;}i+=3;}}
