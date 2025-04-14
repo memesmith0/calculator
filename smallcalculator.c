@@ -694,6 +694,4 @@ typedef struct M{int n;struct M *p;}m;m r[256],*i,p[8192];int main(){i=p;while((
 	k('\"',b=((i+1)->n))
 	k('-',a-=b;c-=b)
 	k('<',a=a<b)
-	  
-
     default: return 0;}i+=3;}}
