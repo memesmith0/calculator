@@ -677,57 +677,22 @@ Public License instead of this License.  But first, please read
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define k(x,y) case x: y;break;//case statement
-#define a (r[(i+1)->n].n)//the integer at register 1
-#define b (r[(i+2)->n].n)//the integer at register 2
-#define c (r[(i+1)->n].p)//the pointer at register 1
-#define d (r[(i+2)->n].p)//the pointer at register 2
-
-typedef struct M{int n;struct M *p;}m;//dynamic datastructure
-
-m r[256],//registers
-  
-  *i,//current instruction
-  
-  p[8192];//initial program
-
-int main(){
-    
-  i=p;while(((i++)->n=getchar())!='g'){}i=p;//load initial program
-  
-  while(1){switch(i->n){//infininitely read op codes
-      k('x',i=c)//execute
-	k('#',b*=10;b+=((i+1)->n)-48)//num
-	k('\"',b=((i+1)->n))//input digit
-	k('+',a+=b)//add
-	k('-',a-=b)//subtract
-	k('_',a*=-1)//negate
-	k('*',a*=b)//multiply
-	k('/',a/=b)//divide
-	k('<',a=a<b)//less than
-	k('=',a=a==b)//equal
-	k('|',a=a||b)//or
-	k('&',a=a&&b)//and
-	k('!',a=!a)//not
-	k('j',c+=b)//jump
-	k('a',c=malloc(sizeof(m)*a))//allocate
-	k('f',free(c))//free
-	k('m',a=b)//move int
-	k('M',c=d)//move pointer
-	k('r',a=c->n)//read int
-	k('w',c->n=b)//write int
-	k('R',c=c->p)//read pointer
-	k('W',c->p=d)//write pointer
-	k('i',a=getchar())//input
-	k('o',putchar(a))//output
-	k(' ',;)//whitespace
-	k('\n',;)//whitespace
-	k('\t',;)//whitespace
-    default: return 0;//exit on mismatch
-    }
-    
-    i+=3;//fetch next op code
-    
-  }
-  
-}
+#define k(x,y) case x: y;break;
+#define a (r[(i+1)->n].n)
+#define b (r[(i+2)->n].n)
+#define c (r[(i+1)->n].p)
+#define d (r[(i+2)->n].p)
+typedef struct M{int n;struct M *p;}m;m r[256],*i,p[8192];int main(){i=p;while(((i++)->n=getchar())!='g');i=p;while(1){switch(i->n){
+      k('i',while((a=getchar())==-1){})//-1 is EOF need to switch this to standard EOF constant
+	k('m',b=a;d=c)
+	k('w',d->n=a;)//d->p=c)
+	k('a',c=malloc(sizeof(m)*a))
+	k('r',b=c->n;c=c->p) // might be fricked
+	k('f',free(c))
+	k('o',putchar(a))
+	k('x',d=i;i=c;i-=3)
+	k('\"',b=((i+1)->n))
+	k('-',a-=b;)
+	k('j',d+=a)
+	k('<',a=a<b)
+    default: return 0;}i+=3;}}
