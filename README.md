@@ -1,2 +1,2 @@
 # calculator
-calculator
+this is my rewrite of gnu dc into something that i feel is more appropriate. i am currently having issues because i dont seem to be abe to read from stdin properly. i dont know if unix stdin is retarded or if i am retarded. it may be because i dont understand concurrent systems. this project over the years has forced me to understand the difference between an interpreter and a compiler. the next iteration of this program will likely compile to c or fortran.
